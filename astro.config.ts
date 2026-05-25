@@ -3,10 +3,10 @@ import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
 
-import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import node from '@astrojs/node';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
@@ -23,12 +23,14 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'hybrid',
+  adapter: node({
+    mode: 'standalone',
+  }),
 
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
     mdx(),
     icon({
       include: {
