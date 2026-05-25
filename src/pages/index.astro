@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import heroOg from '~/assets/images/hero-og.png';
 
 const metadata = {
   title: 'Desarrollo Web y Apps Móviles',
@@ -15,7 +16,7 @@ const metadata = {
     title: 'Desarrollo Web y Apps Móviles | Fade Technologies',
     description:
       'Agencia de desarrollo web y aplicaciones móviles. Creamos plataformas rápidas, escalables y optimizadas para SEO y conversión.',
-    images: [{ url: 'https://fadetechs.com/hero.png', width: 1200, height: 630 }],
+    images: [{ url: heroOg.src, width: heroOg.width, height: heroOg.height }],
   },
   twitter: {
     cardType: 'summary_large_image',
