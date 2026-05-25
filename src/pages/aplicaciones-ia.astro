@@ -1,0 +1,47 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Aplicaciones con IA',
+  description:
+    'Desarrollamos una sola solución con inteligencia artificial y la desplegamos según tu necesidad: web, webapp, app móvil o app de escritorio para Windows/Mac.',
+  openGraph: {
+    title: 'Aplicaciones con IA | Fade Technologies',
+    description:
+      'Desarrollamos una sola solución con inteligencia artificial y la desplegamos según tu necesidad: web, webapp, app móvil o app de escritorio para Windows/Mac.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Aplicaciones con IA"
+    title="Una sola solución, múltiples formas de despliegue"
+    subtitle="Construimos aplicaciones con inteligencia artificial que pueden funcionar en web, webapp, app móvil o escritorio (Windows/Mac), según tu operación."
+    actions={[{ variant: 'primary', text: 'Solicitar propuesta', href: '/contact' }]}
+  />
+
+  <Features
+    title="Opciones de despliegue"
+    subtitle="Mismo núcleo de producto, distintas superficies para llegar a tus usuarios."
+    columns={2}
+    items={[
+      { title: 'Web', description: 'Acceso inmediato desde navegador con despliegue rápido y control centralizado.', icon: 'tabler:world' },
+      { title: 'WebApp', description: 'Experiencia de producto completa con flujos avanzados y operación multiusuario.', icon: 'tabler:device-desktop-code' },
+      { title: 'App móvil', description: 'Disponibilidad en iOS/Android para casos de uso en terreno o consumo frecuente.', icon: 'tabler:device-mobile' },
+      { title: 'App de escritorio', description: 'Soluciones para operación interna en Windows/Mac con acceso a recursos locales.', icon: 'tabler:device-desktop' },
+    ]}
+  />
+
+  <CallToAction
+    title="Definimos contigo el mejor canal"
+    subtitle="Te ayudamos a elegir dónde desplegar según usuarios, costo total y objetivos de negocio."
+    actions={[{ variant: 'primary', text: 'Hablar con el equipo', href: '/contact' }]}
+  />
+</Layout>

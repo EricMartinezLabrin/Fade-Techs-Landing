@@ -1,0 +1,128 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Automatizaciones e IA',
+  description:
+    'Automatizamos procesos de negocio e integramos inteligencia artificial en webapps, aplicaciones móviles y apps de escritorio para Windows y Mac.',
+  openGraph: {
+    title: 'Automatizaciones e IA | Fade Technologies',
+    description:
+      'Automatizamos procesos de negocio e integramos inteligencia artificial en webapps, aplicaciones móviles y apps de escritorio para Windows y Mac.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Automatizaciones e IA"
+    title="Procesos automáticos e inteligencia artificial para operar más rápido"
+    subtitle="Diseñamos e implementamos automatizaciones conectadas a tu operación real en web, webapp, apps móviles y aplicaciones de Windows/Mac."
+    actions={[{ variant: 'primary', text: 'Solicitar diagnóstico', href: '/contact' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Equipo técnico configurando automatizaciones con IA',
+    }}
+  />
+
+  <Features
+    title="Qué automatizamos"
+    subtitle="Creamos flujos a medida, integrando tus herramientas actuales para evitar retrabajo manual."
+    columns={3}
+    items={[
+      {
+        title: 'Captación y seguimiento de leads',
+        description: 'Formularios, CRM, etiquetado y asignación automática de prospectos al equipo comercial.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Notificaciones y alertas',
+        description: 'Avisos por correo, WhatsApp o Slack según eventos de negocio y reglas definidas.',
+        icon: 'tabler:bell-ringing',
+      },
+      {
+        title: 'Reportes automáticos',
+        description: 'Consolidación de datos y envío programado de reportes para dirección y operación.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Integración entre sistemas',
+        description: 'Conectamos ERP, CRM, e-commerce, pasarelas de pago y APIs internas/externas.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Automatización con IA',
+        description: 'Clasificación de mensajes, extracción de datos, respuestas sugeridas y decisiones asistidas por IA.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Apps de escritorio inteligentes',
+        description: 'Automatizaciones para software interno en Windows y Mac conectado a tus sistemas y APIs.',
+        icon: 'tabler:device-desktop',
+      },
+    ]}
+  />
+
+  <Content
+    title="Beneficios para tu negocio"
+    subtitle="Las automatizaciones bien diseñadas no solo ahorran tiempo: mejoran calidad, trazabilidad y capacidad de escalar."
+    items={[
+      {
+        title: 'Menos errores humanos',
+        description: 'Estandarizamos procesos críticos para reducir fallas por tareas manuales repetitivas.',
+      },
+      {
+        title: 'Más velocidad operativa',
+        description: 'Tu equipo dedica menos tiempo a tareas mecánicas y más a trabajo de alto valor.',
+      },
+      {
+        title: 'Mayor control y visibilidad',
+        description: 'Cada flujo queda medido para saber qué funciona, dónde se detiene y cómo optimizarlo.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Panel de control de procesos automatizados',
+    }}
+  />
+
+  <Steps
+    title="Cómo implementamos tus automatizaciones"
+    items={[
+      {
+        title: '1. Mapeo de procesos',
+        description: 'Analizamos tu operación actual, detectamos cuellos de botella y priorizamos oportunidades.',
+        icon: 'tabler:map-2',
+      },
+      {
+        title: '2. Diseño de flujos',
+        description: 'Definimos reglas, integraciones, validaciones y puntos de control del proceso automatizado.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: '3. Implementación técnica',
+        description: 'Construimos y conectamos la automatización con tus sistemas y canales de trabajo.',
+        icon: 'tabler:code',
+      },
+      {
+        title: '4. Pruebas y optimización',
+        description: 'Validamos escenarios reales, ajustamos métricas y dejamos el flujo estable en producción.',
+        icon: 'tabler:checks',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="¿Qué proceso quieres automatizar primero?"
+    subtitle="Cuéntanos tu operación y te proponemos una ruta de automatización e IA clara, priorizada y rentable."
+    actions={[{ variant: 'primary', text: 'Agendar sesión', href: '/contact' }]}
+  />
+</Layout>

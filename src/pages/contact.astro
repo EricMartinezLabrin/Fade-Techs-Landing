@@ -1,79 +1,43 @@
----
+﻿---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Contact from '~/components/widgets/Contact.astro';
+const status = Astro.url.searchParams.get('status');
+const statusMessage =
+  status === 'ok'
+    ? 'Gracias. Recibimos tu mensaje y te responderemos en breve.'
+    : status === 'error'
+      ? 'No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.'
+      : 'Te responderemos por correo en menos de 24 horas hábiles.';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contacto',
+  description:
+    'Solicita una propuesta para tu proyecto web o app móvil. Te ayudamos a definir alcance, stack técnico y tiempos de entrega.',
+  openGraph: {
+    title: 'Contacto | Fade Technologies',
+    description:
+      'Solicita una propuesta para tu proyecto web o app móvil. Te ayudamos a definir alcance, stack técnico y tiempos de entrega.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+  <Contact
+    title="Hablemos de tu proyecto web o móvil"
+    subtitle="Cuéntanos qué quieres construir. Te responderemos con una propuesta de alcance, tiempos y presupuesto. También puedes escribir directamente a eric@fadetechs.com."
     inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
+      { type: 'text', name: 'name', autocomplete: 'given-name', placeholder: 'Nombre' },
+      { type: 'email', name: 'email', autocomplete: 'email', placeholder: 'Correo electrónico' },
     ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
+    textarea={{ name: 'message', placeholder: 'Describe tu proyecto', rows: 6 }}
+    button='Enviar solicitud'
+    description={statusMessage}
+    action="/api/contact"
+    method="post"
+    disclaimer={{ label: 'Al enviar este formulario aceptas que te contactemos para dar seguimiento a tu solicitud.' }}
   />
 </Layout>
+

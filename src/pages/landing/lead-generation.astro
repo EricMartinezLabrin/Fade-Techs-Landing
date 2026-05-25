@@ -1,41 +1,136 @@
----
+﻿---
 import Layout from '~/layouts/LandingLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Lead Generation Landing Page Demo',
+  title: 'Landing de generación de leads',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
   <Hero
-    tagline="Lead Generation Landing Demo"
-    title="Effective Lead Generation Landing Page: Unlock the Secrets"
-    subtitle="Discover the secrets to creating a Landing Page that turns curious visitors into eager leads. (Your Hero should grab attention instantly. Use a powerful headline that speaks directly to your target audience.)"
+    tagline="Captación de prospectos"
+    title="Landing de generación de leads que convierte visitas en oportunidades reales"
+    subtitle="Diseñamos páginas orientadas a resultados: mensaje claro, propuesta de valor directa y formularios optimizados para aumentar solicitudes calificadas."
     actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
+      { variant: 'primary', text: 'Solicitar auditoría', href: '/contact', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Ver servicios', href: '/services' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-      alt: 'Magnet attracting screws. Lead generation landing page demo',
+      alt: 'Estrategia de captación de leads',
     }}
   />
 
+  <Features
+    title="Qué incluye una landing efectiva"
+    subtitle="No se trata solo de diseño: cada bloque cumple una función de conversión."
+    columns={3}
+    items={[
+      {
+        title: 'Mensaje de alto impacto',
+        description: 'Estructuramos titulares y beneficios para que el usuario entienda en segundos por qué debe contactarte.',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'Arquitectura de conversión',
+        description: 'Ordenamos secciones y llamados a la acción para reducir fricción y aumentar la intención de registro.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Formulario optimizado',
+        description: 'Solicitamos solo datos clave para mejorar tasa de envío sin perder calidad del lead.',
+        icon: 'tabler:forms',
+      },
+      {
+        title: 'Prueba social',
+        description: 'Añadimos testimonios, casos y señales de confianza para reforzar credibilidad.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Integración con tu stack',
+        description: 'Conectamos la landing con CRM, automatizaciones y analítica para seguimiento comercial.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Medición continua',
+        description: 'Configuramos eventos y métricas para iterar con datos y elevar conversiones.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
+
+  <Content
+    title="Proceso de trabajo"
+    subtitle="Pasamos de diagnóstico a implementación con foco en resultados de negocio."
+    items={[
+      {
+        title: '1) Diagnóstico',
+        description: 'Revisamos audiencia, oferta, competencia y fricciones actuales en el embudo.',
+      },
+      {
+        title: '2) Diseño y copy',
+        description: 'Definimos estructura, jerarquía visual y textos de conversión alineados a tu nicho.',
+      },
+      {
+        title: '3) Implementación y optimización',
+        description: 'Publicamos, medimos y mejoramos continuamente según el comportamiento real del tráfico.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Equipo optimizando landing de leads',
+    }}
+  />
+
+  <Stats
+    title="Resultados esperados en landings bien ejecutadas"
+    stats={[
+      { amount: '+35%', title: 'Mejora de conversión', icon: 'tabler:trending-up' },
+      { amount: '-28%', title: 'Menor costo por lead', icon: 'tabler:currency-dollar' },
+      { amount: '+2.1x', title: 'Más formularios completados', icon: 'tabler:forms' },
+    ]}
+  />
+
+  <FAQs
+    title="Preguntas frecuentes"
+    items={[
+      {
+        title: '¿Cuánto tarda crear una landing de generación de leads?',
+        description: 'Depende del alcance, pero normalmente entre 1 y 3 semanas incluyendo contenido, diseño e implementación.',
+      },
+      {
+        title: '¿Pueden trabajar sobre mi web actual?',
+        description: 'Sí. Podemos construirla dentro de tu sitio existente o como página independiente conectada a tu dominio.',
+      },
+      {
+        title: '¿Incluyen SEO y analítica?',
+        description: 'Sí. Implementamos fundamentos de SEO técnico, metadatos y medición de eventos para evaluar desempeño.',
+      },
+      {
+        title: '¿La landing se integra con mi CRM?',
+        description: 'Sí. Integramos formularios y flujos con herramientas comerciales para que tu equipo reciba leads de inmediato.',
+      },
+    ]}
+  />
+
   <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    title="Convierte más visitas en oportunidades"
+    subtitle="Si necesitas una landing enfocada en captación de clientes, te ayudamos a diseñarla y lanzarla con estrategia."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
+        text: 'Hablar con un especialista',
+        href: '/contact',
+        icon: 'tabler:chevron-right',
       },
     ]}
   />
 </Layout>
+

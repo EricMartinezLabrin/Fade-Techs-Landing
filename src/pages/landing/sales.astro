@@ -1,11 +1,11 @@
----
+﻿---
 import Layout from '~/layouts/LandingLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Sales Landing Page Demo',
+  title: 'Demo de landing de ventas',
 };
 ---
 
@@ -17,8 +17,8 @@ const metadata = {
     title="Long-form Sales: Sell with a Story: The Long-form Way!"
     subtitle="Dive deep into crafting a Landing Page that narrates, persuades, and converts."
     actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
+      { variant: 'primary', text: 'Solicitar propuesta', href: '/contact', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Ver servicios', href: '/services' },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80',
@@ -27,15 +27,16 @@ const metadata = {
   />
 
   <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    title="Próximamente"
+    subtitle="Estamos trabajando en el contenido de estas páginas demo. Muy pronto estarán disponibles."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'Solicitar propuesta',
+        href: '/contact',
         icon: 'tabler:download',
       },
     ]}
   />
 </Layout>
+
