@@ -1,4 +1,4 @@
-﻿site:
+site:
   name: Fade Technologies
   site: 'https://fadetechs.com'
   base: '/'
@@ -10,7 +10,7 @@ metadata:
   title:
     default: Fade Technologies
     template: '%s | Fade Technologies'
-  description: 'Desarrollo web y aplicaciones móviles a medida. Construimos productos digitales rápidos, escalables y orientados a conversión.'
+  description: 'Soporte y reparación de computadoras en Tampico, Ciudad Madero y Altamira. Desarrollo web, apps y automatización para negocios.'
   robots:
     index: true
     follow: true
@@ -18,9 +18,9 @@ metadata:
     site_name: Fade Technologies
     locale: es_MX
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/fade-social.webp'
         width: 1200
-        height: 628
+        height: 630
     type: website
   twitter:
     handle: '@fadetechs'
@@ -28,7 +28,7 @@ metadata:
     cardType: summary_large_image
 
 i18n:
-  language: es
+  language: es-MX
   textDirection: ltr
 
 apps:
@@ -41,4 +41,4 @@ analytics:
       id: null
 
 ui:
-  theme: 'dark:only'
+  theme: 'light:only'

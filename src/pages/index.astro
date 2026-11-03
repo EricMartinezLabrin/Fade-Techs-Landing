@@ -1,127 +1,40 @@
-﻿---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import heroOg from '~/assets/images/hero-og.png';
-
-const metadata = {
-  title: 'Desarrollo Web y Apps Móviles',
-  ignoreTitleTemplate: true,
-  description:
-    'Agencia de desarrollo web y aplicaciones móviles. Creamos plataformas rápidas, escalables y optimizadas para SEO y conversión.',
-  openGraph: {
-    title: 'Desarrollo Web y Apps Móviles | Fade Technologies',
-    description:
-      'Agencia de desarrollo web y aplicaciones móviles. Creamos plataformas rápidas, escalables y optimizadas para SEO y conversión.',
-    images: [{ url: heroOg.src, width: heroOg.width, height: heroOg.height }],
-  },
-  twitter: {
-    cardType: 'summary_large_image',
-  },
-};
 ---
-
-<Layout metadata={metadata}>
-  <Hero
-    actions={[
-      { variant: 'primary', text: 'Solicitar propuesta', href: '/contact' },
-      { text: 'Ver servicios', href: '/services' },
-    ]}
-    image={{ src: '/hero.png', alt: 'Equipo de desarrollo web y mobile' }}
-  >
-    <Fragment slot="title">
-      Creamos <span class="text-accent dark:text-white highlight">productos digitales</span> que venden
-    </Fragment>
-    <Fragment slot="subtitle">
-      Somos una agencia enfocada en programación web y aplicaciones móviles. Diseñamos, desarrollamos y optimizamos
-      plataformas con alto rendimiento, buena experiencia de usuario y foco en negocio.
-    </Fragment>
-  </Hero>
-
-  <Features
-    id="features"
-    tagline="Especialidad"
-    title="Servicios principales"
-    subtitle="Web y móvil como núcleo, con servicios complementarios para lanzar productos completos."
-    items={[
-      {
-        title: 'Desarrollo Web a Medida',
-        description: 'Sitios corporativos, e-commerce, paneles internos y plataformas SaaS con arquitectura escalable.',
-        icon: 'tabler:world-www',
-      },
-      {
-        title: 'Aplicaciones Móviles',
-        description: 'Apps iOS/Android con UX sólida, APIs robustas y publicación lista para tienda.',
-        icon: 'tabler:device-mobile',
-      },
-      {
-        title: 'UX/UI de Producto',
-        description: 'Diseño de flujos, interfaces y sistema visual para mejorar conversión y retención.',
-        icon: 'tabler:palette',
-      },
-      {
-        title: 'Integraciones y Automatización',
-        description: 'Conectamos pasarelas de pago, CRMs, ERPs y servicios externos críticos para operación.',
-        icon: 'tabler:plug-connected',
-      },
-      {
-        title: 'Modelado 3D y Activos Digitales',
-        description: 'Producción visual puntual para experiencias interactivas y presentaciones técnicas.',
-        icon: 'tabler:box-model-2',
-      },
-      {
-        title: 'Soporte Evolutivo',
-        description: 'Mejoras continuas, optimización de rendimiento y mantenimiento posterior al lanzamiento.',
-        icon: 'tabler:refresh',
-      },
-    ]}
-  />
-
-  <Steps
-    title="Cómo trabajamos tu proyecto"
-    items={[
-      {
-        title: '1. Descubrimiento y estrategia',
-        description: 'Definimos objetivos, alcance, arquitectura y roadmap con foco en resultados reales.',
-        icon: 'tabler:search',
-      },
-      {
-        title: '2. Diseño y prototipado',
-        description: 'Construimos la experiencia de usuario y validamos antes de entrar a desarrollo.',
-        icon: 'tabler:layout-dashboard',
-      },
-      {
-        title: '3. Desarrollo e integración',
-        description: 'Implementamos frontend, backend y servicios externos con buenas prácticas de ingeniería.',
-        icon: 'tabler:code',
-      },
-      {
-        title: '4. Lanzamiento y mejora continua',
-        description: 'Publicación, monitoreo y optimización para escalar el producto.',
-        icon: 'tabler:rocket',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
-      alt: 'Proceso de desarrollo',
-    }}
-  />
-
-  <Stats
-    stats={[
-      { title: 'Tiempo promedio MVP', amount: '6-10 sem' },
-      { title: 'Especialistas técnicos', amount: '18' },
-      { title: 'Satisfacción clientes', amount: '98%' },
-    ]}
-  />
-
-  <CallToAction actions={[{ variant: 'primary', text: 'Hablemos de tu proyecto', href: '/contact' }]}>
-    <Fragment slot="title">Desarrollo web y mobile con ejecución técnica real</Fragment>
-    <Fragment slot="subtitle"
-      >Cuéntanos tu idea y te devolvemos una propuesta clara de alcance, tiempos y stack.</Fragment
-    >
-  </CallToAction>
-</Layout>
+import FadeLayout from '~/layouts/FadeLayout.astro';
+import CustomSolutions from '~/components/CustomSolutions.astro';
+import { cities, hours, priceOf, whatsapp } from '~/data/fade';
+---
+<FadeLayout title="Reparación de computadoras y diseño web en Tampico" description="Reparación y mantenimiento de computadoras en Tampico, Ciudad Madero y Altamira. Desarrollo web, apps, automatización e integraciones para negocios.">
+  <section class="fade-hero">
+    <div class="fade-shell fade-hero-grid">
+      <div>
+        <p class="fade-kicker">Fade Technologies · Tampico, Tamaulipas</p>
+        <h1>Reparación de computadoras y diseño web en Tampico</h1>
+        <p class="fade-lead">Diagnosticamos y damos mantenimiento a computadoras. También creamos sitios web, aplicaciones y automatizaciones a medida.</p>
+        <div class="fade-actions"><a class="fade-btn" href="/soporte-tecnico">Reparar mi computadora</a><a class="fade-btn secondary" href="/soluciones-digitales">Tengo un proyecto digital</a></div>
+      </div>
+      <img class="fade-hero-image" src="/fade-servicios.webp" alt="Ilustración de una laptop, componentes de computadora y un flujo de automatización" width="1536" height="1024" fetchpriority="high" />
+    </div>
+  </section>
+  <section class="fade-section">
+    <div class="fade-shell">
+      <div class="fade-head"><p class="fade-kicker">Servicios</p><h2>¿Qué necesitas resolver?</h2></div>
+      <div class="fade-grid">
+        <article class="fade-card"><h3>Computadoras</h3><p>Diagnóstico, limpieza interna, formateo, respaldos, optimización y reemplazo de piezas compatibles.</p><strong class="fade-number">{priceOf('D01')} MXN</strong><p>Diagnóstico por equipo.</p><p><a href="/soporte-tecnico">Ver reparación y mantenimiento de PC</a></p></article>
+        <article class="fade-card"><h3>Teléfonos y TV Android</h3><p>Optimización por software del sistema original, según el modelo y las aplicaciones que utilices.</p><strong class="fade-number">Desde {priceOf('A01')} MXN</strong><p>Optimización de teléfono Android.</p><p><a href="/soporte-tecnico#android">Ver opciones para Android</a></p></article>
+        <article class="fade-card"><h3>Web, apps y automatización</h3><p>Desde una página para captar clientes hasta un sistema que conecte herramientas y reduzca trabajo manual.</p><strong class="fade-number">Desde {priceOf('W01')} MXN</strong><p>Landing page de alcance inicial.</p><p><a href="/soluciones-digitales">Ver diseño web y automatización</a></p></article>
+      </div>
+    </div>
+  </section>
+  <section class="fade-section fade-tint">
+    <div class="fade-shell">
+      <div class="fade-head"><p class="fade-kicker">Cómo trabajamos</p><h2>Conoce el alcance antes de decidir</h2></div>
+      <ol class="fade-grid fade-steps">
+        <li class="fade-card"><h3>Cuéntanos qué pasa</h3><p>Escríbenos por WhatsApp o trae tu equipo al taller dentro del horario de atención.</p></li>
+        <li class="fade-card"><h3>Revisamos tu caso</h3><p>Te explicamos qué encontramos, qué opciones tienes y cuánto costaría el trabajo.</p></li>
+        <li class="fade-card"><h3>Tú autorizas</h3><p>Empezamos una vez acordados el trabajo y el precio. Al terminar, revisamos el resultado contigo.</p></li>
+      </ol>
+    </div>
+  </section>
+  <section class="fade-band"><div class="fade-shell"><div><strong>Atención en {cities}</strong><p>{hours}. Recibimos equipos con o sin cita.</p></div><a class="fade-btn secondary" href={whatsapp('Hola, necesito ayuda con mi computadora.')}>Escríbenos por WhatsApp</a></div></section>
+  <CustomSolutions />
+</FadeLayout>

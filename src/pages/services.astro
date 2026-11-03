@@ -1,65 +1,10 @@
-﻿---
-import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-
-const metadata = {
-  title: 'Servicios de Desarrollo Web y Apps',
-  description:
-    'Servicios de programación web, apps móviles, UX/UI, backend e integraciones para empresas y startups que buscan escalar.',
-  openGraph: {
-    title: 'Servicios de Desarrollo Web y Apps | Fade Technologies',
-    description:
-      'Servicios de programación web, apps móviles, UX/UI, backend e integraciones para empresas y startups que buscan escalar.',
-  },
-  twitter: {
-    cardType: 'summary_large_image',
-  },
-};
 ---
-
-<Layout metadata={metadata}>
-  <Hero
-    tagline="Servicios"
-    title="Programación web y mobile como base de crecimiento"
-    subtitle="Construimos productos digitales listos para vender, operar y escalar, incluyendo soluciones con inteligencia artificial."
-    actions={[{ variant: 'primary', text: 'Solicitar cotización', href: '/contact' }]}
-    image={{ src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1740&q=80', alt: 'Servicios de desarrollo' }}
-  />
-
-  <Features2
-    id="aplicaciones-ia"
-    title="Lo que hacemos"
-    subtitle="Enfoque principal en web y apps móviles, con capacidades complementarias de producto digital."
-    columns={3}
-    items={[
-      { title: 'Desarrollo Web', description: 'Sitios, e-commerce, intranets y plataformas SaaS.', icon: 'tabler:world' },
-      { title: 'Apps Móviles', description: 'Aplicaciones iOS/Android con APIs seguras y escalables.', icon: 'tabler:device-mobile' },
-      {
-        title: 'Aplicaciones con IA',
-        description:
-          'Desarrollamos una sola solución con IA y la desplegamos según tu necesidad: web, webapp, app móvil o app de escritorio para Windows/Mac.',
-        icon: 'tabler:brain',
-      },
-      { title: 'Arquitectura Backend', description: 'APIs, autenticación, roles, pagos y lógica de negocio.', icon: 'tabler:server' },
-      {
-        title: 'Automatizaciones',
-        description: 'Automatizamos procesos repetitivos, integraciones y flujos operativos para ahorrar tiempo y reducir errores.',
-        icon: 'tabler:automation',
-      },
-      { title: 'UX/UI', description: 'Diseño funcional orientado a conversión y claridad de uso.', icon: 'tabler:layout' },
-      { title: 'QA y Performance', description: 'Pruebas, métricas y optimización de tiempos de carga.', icon: 'tabler:gauge' },
-      { title: 'Soporte Evolutivo', description: 'Mejoras continuas posteriores al lanzamiento.', icon: 'tabler:settings-cog' },
-      { title: 'Modelado 3D', description: 'Activos visuales para demos, producto y presentaciones.', icon: 'tabler:cube' },
-      { title: 'Unity y Experiencias Interactivas', description: 'Desarrollo puntual para productos interactivos.', icon: 'tabler:brand-unity' },
-      { title: 'Consultoría Técnica', description: 'Acompañamiento en decisiones de stack y arquitectura.', icon: 'tabler:bulb' },
-    ]}
-  />
-
-  <CallToAction
-    actions={[{ variant: 'primary', text: 'Agendar reunión', href: '/contact' }]}
-    title="¿Necesitas web, app o ambos?"
-    subtitle="Definimos una ruta técnica clara para lanzar sin sobrecostos ni retrabajo."
-  />
-</Layout>
+import FadeLayout from '~/layouts/FadeLayout.astro';
+---
+<FadeLayout title="Servicios" description="Encuentra soporte de computadoras, optimización de Android y soluciones digitales para tu negocio.">
+  <section class="fade-hero"><div class="fade-shell"><p class="fade-kicker">Fade Technologies</p><h1>Servicios</h1><p class="fade-lead">Elige soporte para tu equipo o una solución digital para tu negocio.</p></div></section>
+  <section class="fade-section"><div class="fade-shell fade-grid two">
+    <article class="fade-card"><h2>Soporte técnico</h2><p>Diagnóstico y mantenimiento de computadoras, instalación de piezas y optimización de Android.</p><div class="fade-actions"><a class="fade-btn" href="/soporte-tecnico">Ver soporte</a></div></article>
+    <article class="fade-card"><h2>Soluciones digitales</h2><p>Sitios web, apps, sistemas, automatización e integraciones.</p><div class="fade-actions"><a class="fade-btn" href="/soluciones-digitales">Ver soluciones digitales</a></div></article>
+  </div></section>
+</FadeLayout>

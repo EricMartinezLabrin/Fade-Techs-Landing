@@ -1,0 +1,22 @@
+---
+import FadeLayout from '~/layouts/FadeLayout.astro';
+import CustomSolutions from '~/components/CustomSolutions.astro';
+import { priceOf, whatsapp } from '~/data/fade';
+const offerings = [
+  ['Diseño y desarrollo web', 'Páginas para presentar tus servicios, captar solicitudes o iniciar una tienda en línea.', 'W01'],
+  ['Sistemas y aplicaciones', 'Sistemas web y aplicaciones móviles con módulos definidos según el trabajo que necesitas resolver.', 'W04'],
+  ['Automatización de procesos', 'Reglas y flujos para registrar datos, procesar facturas o enviar correos y recordatorios.', 'W06'],
+  ['Integraciones', 'Conexiones entre sistemas mediante API y flujos con WhatsApp según las herramientas que ya usas.', 'AU06'],
+  ['Integración con IA', 'Clasificación, extracción o generación de información en un flujo delimitado y probado con casos acordados.', 'AU07'],
+  ['Mantenimiento web', 'Ajustes y soporte para sitios compatibles con alcance acordado por mes.', 'W07'],
+];
+---
+<FadeLayout title="Diseño web y automatización de procesos en Tampico" description="Fade Technologies desarrolla sitios web, aplicaciones móviles y sistemas a medida. Automatización de procesos, integración con IA, APIs y WhatsApp.">
+  <section class="fade-hero"><div class="fade-shell"><p class="fade-kicker">Soluciones digitales para negocios</p><h1>Diseño web, apps y automatización de procesos</h1><p class="fade-lead">Diseñamos sitios web, aplicaciones y automatizaciones para negocios en Tampico, Ciudad Madero y Altamira. Describe lo que quieres vender, organizar o automatizar. Definimos los entregables y el costo con base en ese objetivo.</p><div class="fade-actions"><a class="fade-btn" href={whatsapp('Hola, quiero cotizar un proyecto digital para mi negocio.')}>Cotizar mi proyecto</a><a class="fade-btn secondary" href="/pricing#desarrollo">Ver precios de referencia</a></div></div></section>
+  <section class="fade-section"><div class="fade-shell"><div class="fade-head"><h2>Qué podemos desarrollar</h2></div><div class="fade-grid">{offerings.map(([name, description, id]) => <article class="fade-card"><h3>{name}</h3><p>{description}</p><strong class="fade-number">Desde {priceOf(id)} MXN</strong></article>)}</div></div></section>
+  <section class="fade-section fade-tint"><div class="fade-shell"><div class="fade-head"><p class="fade-kicker">Ejemplos de aplicación</p><h2>Del trabajo manual a un flujo claro</h2></div><div class="fade-grid two">
+    <article class="fade-card"><h3>Captura de facturas</h3><p>Tomar datos de los documentos que ya recibes y enviarlos a una hoja o sistema con los campos acordados.</p></article>
+    <article class="fade-card"><h3>Seguimiento de pagos</h3><p>Leer vencimientos, aplicar reglas de cobranza y registrar el envío de recordatorios por correo o WhatsApp.</p></article>
+  </div><p style="margin-top:1rem">Los servicios externos, el alojamiento y el consumo de APIs se cotizan por separado cuando aplican.</p></div></section>
+  <CustomSolutions />
+</FadeLayout>

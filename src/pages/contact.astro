@@ -1,43 +1,30 @@
-﻿---
-import Layout from '~/layouts/PageLayout.astro';
-import Contact from '~/components/widgets/Contact.astro';
-const status = Astro.url.searchParams.get('status');
-const statusMessage =
-  status === 'ok'
-    ? 'Gracias. Recibimos tu mensaje y te responderemos en breve.'
-    : status === 'error'
-      ? 'No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.'
-      : 'Te responderemos por correo en menos de 24 horas hábiles.';
-
-const metadata = {
-  title: 'Contacto',
-  description:
-    'Solicita una propuesta para tu proyecto web o app móvil. Te ayudamos a definir alcance, stack técnico y tiempos de entrega.',
-  openGraph: {
-    title: 'Contacto | Fade Technologies',
-    description:
-      'Solicita una propuesta para tu proyecto web o app móvil. Te ayudamos a definir alcance, stack técnico y tiempos de entrega.',
-  },
-  twitter: {
-    cardType: 'summary_large_image',
-  },
-};
 ---
-
-<Layout metadata={metadata}>
-  <Contact
-    title="Hablemos de tu proyecto web o móvil"
-    subtitle="Cuéntanos qué quieres construir. Te responderemos con una propuesta de alcance, tiempos y presupuesto. También puedes escribir directamente a eric@fadetechs.com."
-    inputs={[
-      { type: 'text', name: 'name', autocomplete: 'given-name', placeholder: 'Nombre' },
-      { type: 'email', name: 'email', autocomplete: 'email', placeholder: 'Correo electrónico' },
-    ]}
-    textarea={{ name: 'message', placeholder: 'Describe tu proyecto', rows: 6 }}
-    button='Enviar solicitud'
-    description={statusMessage}
-    action="/api/contact"
-    method="post"
-    disclaimer={{ label: 'Al enviar este formulario aceptas que te contactemos para dar seguimiento a tu solicitud.' }}
-  />
-</Layout>
-
+import FadeLayout from '~/layouts/FadeLayout.astro';
+import { address, cities, facebook, hours, maps, phone, phoneLink, whatsapp } from '~/data/fade';
+export const prerender = false;
+const status = Astro.url.searchParams.get('status');
+---
+<FadeLayout title="Contacto y horario del taller en Tampico" description="Contacta a Fade Technologies por WhatsApp o visita el taller de computadoras en Tampico. Recibimos equipos con o sin cita.">
+  <section class="fade-hero"><div class="fade-shell"><p class="fade-kicker">Contacto · {cities}</p><h1>Contacto y horario del taller en Tampico</h1><p class="fade-lead">Puedes escribirnos para cotizar o venir a dejar tu computadora dentro del horario de atención.</p></div></section>
+  <section class="fade-section"><div class="fade-shell fade-grid two">
+    <article class="fade-card">
+      <h2>Visita el taller</h2>
+      <p>{address}</p><p>{hours}. Recibimos equipos con o sin cita.</p>
+      <div class="fade-actions"><a class="fade-btn" href={maps}>Cómo llegar al taller</a><a class="fade-btn secondary" href={whatsapp('Hola, quiero consultar por un servicio en el taller.')}>WhatsApp</a></div>
+      <p><a href={phoneLink}>{phone}</a> · <a href={facebook}>Facebook</a></p>
+    </article>
+    <article class="fade-card">
+      <h2>Envía tu solicitud</h2>
+      <p>Describe el problema o el proyecto que quieres cotizar.</p>
+      {status === 'ok' && <p role="status">Recibimos tu mensaje. Gracias por contactarnos.</p>}
+      {status === 'error' && <p role="alert">No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.</p>}
+      <form class="fade-form" action="/api/contact" method="post" style="margin-top:1rem">
+        <label>Nombre<input type="text" name="name" autocomplete="name" required maxlength="120" /></label>
+        <label>Correo electrónico<input type="email" name="email" autocomplete="email" required maxlength="254" /></label>
+        <label>¿En qué podemos ayudarte?<textarea name="message" rows="4" required maxlength="2500"></textarea></label>
+        <p>Usaremos tus datos para responder la solicitud. <a href="/privacy">Aviso de privacidad</a>.</p>
+        <button class="fade-btn" type="submit">Enviar solicitud</button>
+      </form>
+    </article>
+  </div></section>
+</FadeLayout>

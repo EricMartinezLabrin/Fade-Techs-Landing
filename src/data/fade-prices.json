@@ -1,0 +1,683 @@
+{
+  "items": [
+    {
+      "id": "N01",
+      "category": "Soporte para negocios",
+      "name": "Soporte técnico para pequeños negocios",
+      "amount": null,
+      "mode": "Cotizar",
+      "unit": "Por intervención o plan mensual",
+      "includes": "Mantenimiento preventivo de computadoras, asistencia remota, configuración de impresoras y respaldo de archivos, según el alcance acordado.",
+      "excludes": "Piezas, licencias y traslados se cotizan por separado. El precio depende del número de equipos, la modalidad y la frecuencia."
+    },
+    {
+      "id": "D01",
+      "category": "Diagnóstico",
+      "name": "Diagnóstico técnico",
+      "amount": 200,
+      "mode": "Fijo",
+      "unit": "Por equipo",
+      "includes": "Revisión y explicación de la falla; presupuesto antes de reparar. Aplica a cualquier dispositivo o modalidad.",
+      "excludes": "Reparación y traslado."
+    },
+    {
+      "id": "T01",
+      "category": "Traslados",
+      "name": "Visita, recolección o entrega",
+      "amount": 10,
+      "mode": "Por km",
+      "unit": "Por viaje",
+      "includes": "Desde Mercado del Norte, Tampico, hasta el domicilio. Cada visita, recolección y entrega es un viaje.",
+      "excludes": "Servicio técnico. Mínimo $25 por viaje; no sumar mínimo y tarifa."
+    },
+    {
+      "id": "T02",
+      "category": "Traslados",
+      "name": "Mínimo de traslado",
+      "amount": 25,
+      "mode": "Mínimo",
+      "unit": "Por viaje",
+      "includes": "Se cobra el mayor entre $25 y $10 × kilómetros del trayecto cotizado.",
+      "excludes": "No es un segundo cargo adicional al traslado."
+    },
+    {
+      "id": "P01",
+      "category": "Software PC",
+      "name": "Optimización de rendimiento",
+      "amount": 300,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Revisión de inicio, procesos, consumo de RAM y programas innecesarios; ajustes y prueba comparativa.",
+      "excludes": "Más memoria física, licencias, formateo, piezas o promesa de duplicar velocidad."
+    },
+    {
+      "id": "P02",
+      "category": "Software PC",
+      "name": "Limpieza de programas",
+      "amount": 200,
+      "mode": "Fijo",
+      "unit": "Por equipo",
+      "includes": "Retirar hasta 10 programas identificados y autorizados; revisar extensiones y arranque relacionado.",
+      "excludes": "Diagnóstico profundo, eliminación compleja de malware o formateo."
+    },
+    {
+      "id": "P03",
+      "category": "Software PC",
+      "name": "Eliminación de malware",
+      "amount": 350,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Escaneo, eliminación de amenazas comunes y verificación básica de funcionamiento.",
+      "excludes": "Recuperación de datos cifrados, formateo y licencia de antivirus."
+    },
+    {
+      "id": "P04",
+      "category": "Software PC",
+      "name": "Corrección de errores de sistema",
+      "amount": 450,
+      "mode": "Desde",
+      "unit": "Por incidencia",
+      "includes": "Resolver una falla de arranque, actualización o configuración si el sistema es recuperable.",
+      "excludes": "Reinstalación completa, respaldo y piezas. Cotizar complejidad tras revisar."
+    },
+    {
+      "id": "P05",
+      "category": "Software PC",
+      "name": "Formateo e instalación Windows",
+      "amount": 550,
+      "mode": "Fijo",
+      "unit": "Por equipo",
+      "includes": "Instalación limpia compatible, controladores, actualizaciones y pruebas. Trabajo estándar.",
+      "excludes": "Respaldo, licencia de Windows, Office y otros programas de pago."
+    },
+    {
+      "id": "P06",
+      "category": "Software PC",
+      "name": "Instalación o reinstalación Linux",
+      "amount": 650,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Distribución compatible, controladores disponibles, actualizaciones y pruebas básicas.",
+      "excludes": "Dual boot, particionado avanzado, respaldo y recuperación."
+    },
+    {
+      "id": "P07",
+      "category": "Software PC",
+      "name": "Reinstalación macOS",
+      "amount": 750,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Reinstalar una versión compatible en Mac, configuración y pruebas. Acceso legítimo del propietario.",
+      "excludes": "Respaldo, fallas de hardware, bloqueos de cuenta y métodos no compatibles."
+    },
+    {
+      "id": "P08",
+      "category": "Software PC",
+      "name": "Controladores y periféricos",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Instalar o corregir controladores de hasta 3 dispositivos compatibles.",
+      "excludes": "Piezas, reparación física o dispositivos sin controladores compatibles."
+    },
+    {
+      "id": "P09",
+      "category": "Software PC",
+      "name": "Instalación de programa",
+      "amount": 150,
+      "mode": "Fijo",
+      "unit": "Por programa",
+      "includes": "Instalar y configurar una aplicación con licencia válida cuando corresponda.",
+      "excludes": "Precio de licencia se cobra aparte, configuración especializada y capacitación extensa."
+    },
+    {
+      "id": "P10",
+      "category": "Software PC",
+      "name": "Configuración de equipo nuevo",
+      "amount": 350,
+      "mode": "Fijo",
+      "unit": "Por equipo",
+      "includes": "Actualizaciones, cuenta del propietario, privacidad básica y hasta 3 aplicaciones.",
+      "excludes": "Licencias, respaldo, migración de archivos y piezas."
+    },
+    {
+      "id": "P11",
+      "category": "Asistencia",
+      "name": "Asistencia remota",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Hasta 45 minutos",
+      "includes": "Resolver una incidencia sencilla a distancia con autorización del cliente.",
+      "excludes": "Diagnóstico sin reparación y hardware. Tiempo adicional se presupuesta antes."
+    },
+    {
+      "id": "B01",
+      "category": "Datos PC",
+      "name": "Respaldo y restitución de archivos",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Hasta 100 GB",
+      "includes": "Copia de archivos accesibles, verificación y restitución si se contrata también formateo del mismo equipo.",
+      "excludes": "Medio de almacenamiento, disco fallando, recuperación y más de 100 GB."
+    },
+    {
+      "id": "B02",
+      "category": "Datos PC",
+      "name": "Volumen adicional de respaldo",
+      "amount": 100,
+      "mode": "Adicional",
+      "unit": "Cada 100 GB iniciados",
+      "includes": "Se agrega al respaldo base por cada bloque adicional de hasta 100 GB.",
+      "excludes": "No sustituye el precio base; sujeto a acceso y estado del disco."
+    },
+    {
+      "id": "B03",
+      "category": "Datos PC",
+      "name": "Restaurar respaldo aportado",
+      "amount": 200,
+      "mode": "Desde",
+      "unit": "Hasta 100 GB",
+      "includes": "Restituir archivos accesibles desde un respaldo existente del cliente.",
+      "excludes": "No agregar si ya se cobró B01 y la restitución está incluida."
+    },
+    {
+      "id": "B04",
+      "category": "Datos PC",
+      "name": "Clonación de disco funcional",
+      "amount": 350,
+      "mode": "Desde",
+      "unit": "Hasta 250 GB usados",
+      "includes": "Clonar un origen legible a un destino compatible y verificar arranque cuando aplique.",
+      "excludes": "Disco nuevo, montaje físico, discos fallando y recuperación de archivos."
+    },
+    {
+      "id": "B05",
+      "category": "Datos PC",
+      "name": "Recuperación lógica de borrados",
+      "amount": 600,
+      "mode": "Desde",
+      "unit": "Por caso",
+      "includes": "Intento de recuperación de archivos eliminados sin reparación electrónica. Alcance y cobro autorizados previamente.",
+      "excludes": "No se garantiza recuperar ni obtener archivos íntegros; medio de entrega aparte."
+    },
+    {
+      "id": "M01",
+      "category": "Mantenimiento PC",
+      "name": "Limpieza y pasta térmica escritorio",
+      "amount": 450,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Limpieza interna, ventiladores accesibles, pasta térmica estándar del CPU y prueba. En taller.",
+      "excludes": "Software, piezas, metal líquido y mantenimiento interno de GPU."
+    },
+    {
+      "id": "M02",
+      "category": "Mantenimiento PC",
+      "name": "Limpieza y pasta térmica laptop",
+      "amount": 650,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Desarmado estándar, limpieza, ventilación, pasta térmica y prueba. En taller.",
+      "excludes": "Desarmados de alto riesgo, metal líquido, piezas y software."
+    },
+    {
+      "id": "M03",
+      "category": "Mantenimiento PC",
+      "name": "Mantenimiento PC gamer",
+      "amount": 850,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Limpieza de torre, filtros, ventilación, pasta de CPU y pruebas térmicas. En taller.",
+      "excludes": "Abrir GPU o fuente, cambiar pads, reparar refrigeración líquida o piezas."
+    },
+    {
+      "id": "M04",
+      "category": "Mantenimiento PC",
+      "name": "Mantenimiento todo en uno",
+      "amount": 800,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Limpieza y pasta térmica en modelos cuyo acceso pueda realizarse con seguridad. En taller.",
+      "excludes": "Modelos sellados o de riesgo requieren cotización; piezas y software aparte."
+    },
+    {
+      "id": "H01",
+      "category": "Piezas PC",
+      "name": "Instalar RAM en escritorio",
+      "amount": 200,
+      "mode": "Fijo",
+      "unit": "Por intervención",
+      "includes": "Instalar hasta 2 módulos compatibles y prueba de reconocimiento/estabilidad.",
+      "excludes": "RAM y diagnóstico de compatibilidad si aún no se ha realizado."
+    },
+    {
+      "id": "H02",
+      "category": "Piezas PC",
+      "name": "Instalar RAM en laptop",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "Instalar hasta 2 módulos no soldados y prueba; acceso estándar.",
+      "excludes": "Módulos, memoria soldada y desarmado especial."
+    },
+    {
+      "id": "H03",
+      "category": "Piezas PC",
+      "name": "Instalar SSD o HDD",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Por unidad",
+      "includes": "Montaje de una unidad compatible, detección y prueba básica.",
+      "excludes": "Disco, clonación, sistema operativo, respaldo y adaptadores."
+    },
+    {
+      "id": "H04",
+      "category": "Piezas PC",
+      "name": "Cambiar fuente o tarjeta gráfica",
+      "amount": 300,
+      "mode": "Desde",
+      "unit": "Por componente",
+      "includes": "Sustituir una pieza compatible, reconexión y prueba funcional.",
+      "excludes": "Componente, adaptadores y reparación de la pieza retirada."
+    },
+    {
+      "id": "H05",
+      "category": "Piezas PC",
+      "name": "Cambiar procesador de escritorio",
+      "amount": 450,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "CPU compatible no soldado, pasta estándar y prueba de funcionamiento.",
+      "excludes": "Procesador, modificación del socket o cambio de plataforma."
+    },
+    {
+      "id": "H06",
+      "category": "Piezas PC",
+      "name": "Cambiar batería de laptop",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "Sustituir batería compatible, no soldada; acceso estándar y prueba.",
+      "excludes": "Batería, reparación electrónica y baterías adheridas de alto riesgo."
+    },
+    {
+      "id": "H07",
+      "category": "Piezas PC",
+      "name": "Cambiar teclado de laptop",
+      "amount": 450,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "Sustituir teclado desmontable y realizar prueba de teclas.",
+      "excludes": "Teclado, piezas remachadas o reparación de pistas."
+    },
+    {
+      "id": "H08",
+      "category": "Piezas PC",
+      "name": "Cambiar pantalla de laptop",
+      "amount": 500,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "Sustituir panel compatible y probar imagen. Presupuesto según modelo.",
+      "excludes": "Panel, táctil pegado, adhesivos especiales o reparación de circuitos."
+    },
+    {
+      "id": "H09",
+      "category": "Piezas PC",
+      "name": "Cambiar ventilador",
+      "amount": 350,
+      "mode": "Desde",
+      "unit": "Por intervención",
+      "includes": "Sustituir ventilador accesible no soldado y probar.",
+      "excludes": "Ventilador y mantenimiento completo salvo que se contrate."
+    },
+    {
+      "id": "H10",
+      "category": "Piezas PC",
+      "name": "Cambiar tarjeta madre completa",
+      "amount": 750,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Sustituir placa compatible sin soldadura y probar. Sujeto a revisión del modelo.",
+      "excludes": "Tarjeta madre, reparación de chips, licencias o reinstalación del sistema."
+    },
+    {
+      "id": "H11",
+      "category": "Armado PC",
+      "name": "Armado de escritorio",
+      "amount": 800,
+      "mode": "Desde",
+      "unit": "Por equipo",
+      "includes": "Montaje estándar, organización de cables, BIOS básica y prueba de encendido/estabilidad.",
+      "excludes": "Piezas, instalación de sistema, overclock y montaje especial."
+    },
+    {
+      "id": "H12",
+      "category": "Asesoría PC",
+      "name": "Selección de piezas para compra",
+      "amount": 250,
+      "mode": "Fijo",
+      "unit": "Por configuración",
+      "includes": "Una propuesta de componentes por presupuesto y una revisión de ajustes.",
+      "excludes": "No agregar a un diagnóstico que ya incluya esa recomendación."
+    },
+    {
+      "id": "A01",
+      "category": "Android",
+      "name": "Optimización de teléfono Android",
+      "amount": 300,
+      "mode": "Desde",
+      "unit": "Por dispositivo",
+      "includes": "Optimizar velocidad del sistema original; retirar o deshabilitar aplicaciones autorizadas según modelo.",
+      "excludes": "Respaldo, hardware, root, ROM, desbloqueos y garantías de velocidad absoluta."
+    },
+    {
+      "id": "A02",
+      "category": "Android",
+      "name": "Optimización Android TV",
+      "amount": 400,
+      "mode": "Desde",
+      "unit": "Por dispositivo",
+      "includes": "Ajustes del sistema original y aplicaciones innecesarias, según compatibilidad; prueba de navegación.",
+      "excludes": "Hardware, root, ROM, contenido de pago y eliminación universal de anuncios."
+    },
+    {
+      "id": "R01",
+      "category": "Redes y periféricos",
+      "name": "Instalación de impresora",
+      "amount": 250,
+      "mode": "Desde",
+      "unit": "1 impresora / 1 PC",
+      "includes": "Controladores, conexión USB o Wi-Fi compatible y prueba de impresión.",
+      "excludes": "Impresora, tinta, reparación física y cableado."
+    },
+    {
+      "id": "R02",
+      "category": "Redes y periféricos",
+      "name": "PC adicional para impresora",
+      "amount": 100,
+      "mode": "Adicional",
+      "unit": "Por PC",
+      "includes": "Agregar un equipo a la misma impresora durante la misma intervención.",
+      "excludes": "No se cobra como instalación completa adicional."
+    },
+    {
+      "id": "R03",
+      "category": "Redes y periféricos",
+      "name": "Configurar router o repetidor",
+      "amount": 350,
+      "mode": "Desde",
+      "unit": "Por dispositivo",
+      "includes": "Configuración básica de Wi-Fi, seguridad, nombre y prueba de conexión.",
+      "excludes": "Equipo, cableado, instalación en altura y fallas del proveedor de internet."
+    },
+    {
+      "id": "R04",
+      "category": "Redes y periféricos",
+      "name": "Configurar red mesh doméstica",
+      "amount": 600,
+      "mode": "Desde",
+      "unit": "Hasta 2 nodos",
+      "includes": "Configurar equipos compatibles, ubicación y prueba de conectividad.",
+      "excludes": "Nodos, cableado y obra física."
+    },
+    {
+      "id": "L01",
+      "category": "Software y cuentas",
+      "name": "Instalación y activación SIN licencia",
+      "amount": 150,
+      "mode": "Fijo",
+      "unit": "Por producto",
+      "includes": "Solo mano de obra. Si Fade aporta la licencia, el total es costo real de licencia + instalación.",
+      "excludes": "$150 no es el precio de la licencia. Si el cliente ya tiene licencia válida, solo paga la instalación."
+    },
+    {
+      "id": "L02",
+      "category": "Software y cuentas",
+      "name": "Configurar suscripción SIN incluir plan",
+      "amount": 100,
+      "mode": "Fijo",
+      "unit": "Por servicio",
+      "includes": "Inicio de sesión y configuración básica en hasta 2 dispositivos compatibles.",
+      "excludes": "Netflix, Disney+, Max, Prime Video, Canva o Microsoft 365: suscripción aparte."
+    },
+    {
+      "id": "L03",
+      "category": "Software y cuentas",
+      "name": "Licencia OEM + instalación y activación",
+      "amount": null,
+      "mode": "Cotizar",
+      "unit": "Por producto",
+      "includes": "Precio final calculado en Criterios: costo real de licencia OEM + mano de obra L01.",
+      "excludes": "El total se confirma con el costo de la licencia y la mano de obra."
+    },
+    {
+      "id": "W01",
+      "category": "Desarrollo",
+      "name": "Landing page",
+      "amount": 4500,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Una página hasta 5 secciones, responsive, WhatsApp, formulario y 1 ronda de cambios. Contenido aportado por cliente.",
+      "excludes": "Dominio, hosting, correo, textos, branding, tienda y soporte posterior."
+    },
+    {
+      "id": "W02",
+      "category": "Desarrollo",
+      "name": "Sitio web de negocio",
+      "amount": 9500,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Hasta 5 páginas, responsive, contacto, SEO técnico básico y 2 rondas de cambios. Contenido del cliente.",
+      "excludes": "Dominio, hosting, redacción, campañas, posicionamiento garantizado y tienda."
+    },
+    {
+      "id": "W03",
+      "category": "Desarrollo",
+      "name": "Tienda en línea inicial",
+      "amount": 16000,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Catálogo inicial hasta 20 productos, carrito, 1 pasarela y capacitación básica; alcance firmado.",
+      "excludes": "Comisiones, fotos/textos, carga extra, logística, CFDI e integraciones especiales."
+    },
+    {
+      "id": "W04",
+      "category": "Desarrollo",
+      "name": "Sistema web a medida",
+      "amount": 25000,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Referencia inicial para un sistema pequeño; módulos y criterios de aceptación se definen antes de fijar precio.",
+      "excludes": "No incluye cualquier función por ese importe; infraestructura y cambios aparte."
+    },
+    {
+      "id": "W05",
+      "category": "Desarrollo",
+      "name": "Aplicación móvil a medida",
+      "amount": 35000,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Referencia inicial para MVP sencillo; plataformas, flujos, integraciones y entregables por cotización.",
+      "excludes": "Cuentas de tiendas, backend complejo, infraestructura y mantenimiento."
+    },
+    {
+      "id": "W06",
+      "category": "Automatización",
+      "name": "Automatizar procesos sin IA",
+      "amount": 3500,
+      "mode": "Desde",
+      "unit": "Por flujo",
+      "includes": "Transformar un proceso administrativo manual en automático con reglas, scripts o herramientas de automatización. Un flujo acotado y pruebas.",
+      "excludes": "Hosting, licencias, APIs de pago y nuevos procesos aparte. Precio final según alcance."
+    },
+    {
+      "id": "W07",
+      "category": "Mantenimiento web",
+      "name": "Mantenimiento web mensual básico",
+      "amount": 500,
+      "mode": "Desde",
+      "unit": "Por mes",
+      "includes": "Hasta 1 hora de ajustes o mantenimiento de sitio existente; alcance y compatibilidad acordados.",
+      "excludes": "Hosting, dominio, soporte ilimitado y horas acumulables."
+    },
+    {
+      "id": "W08",
+      "category": "Desarrollo",
+      "name": "Hora de desarrollo adicional",
+      "amount": 450,
+      "mode": "Fijo",
+      "unit": "Por hora",
+      "includes": "Cambios o soporte autorizados sobre proyecto existente, estimados antes de comenzar.",
+      "excludes": "Infraestructura, licencias y cambios fuera de la estimación aprobada."
+    },
+    {
+      "id": "AU01",
+      "category": "Automatización",
+      "name": "Extracción de datos de facturas",
+      "amount": 4500,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Extraer campos acordados de facturas PDF, XML o imágenes y enviarlos a una hoja o sistema. Un formato y un destino iniciales.",
+      "excludes": "IA/OCR, almacenamiento y APIs de pago aparte. Validación y formatos adicionales según alcance."
+    },
+    {
+      "id": "AU02",
+      "category": "Automatización",
+      "name": "Envío automático de emails",
+      "amount": 2500,
+      "mode": "Desde",
+      "unit": "Por flujo",
+      "includes": "Un disparador, una plantilla y una cuenta de envío; destinatarios provenientes de una fuente acordada.",
+      "excludes": "Proveedor de email, dominio, volumen de envíos y flujos adicionales aparte."
+    },
+    {
+      "id": "AU03",
+      "category": "Automatización",
+      "name": "Cobranza automática por email",
+      "amount": 4500,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Leer vencimientos de una fuente, enviar recordatorios por reglas y registrar su estado. Un flujo y una cuenta de email.",
+      "excludes": "Servicio de email, consumo y cambios al sistema de cobranza aparte. Alcance de conciliación por cotización."
+    },
+    {
+      "id": "AU04",
+      "category": "Integraciones",
+      "name": "Conectar un sistema con WhatsApp",
+      "amount": 6500,
+      "mode": "Desde",
+      "unit": "Por integración",
+      "includes": "Conectar un sistema con un canal de WhatsApp mediante API; un flujo de mensajes y registro de resultado.",
+      "excludes": "Costos de WhatsApp, proveedor, número, plantillas, hosting y consumo aparte."
+    },
+    {
+      "id": "AU05",
+      "category": "Automatización",
+      "name": "Cobranza automática por WhatsApp",
+      "amount": 7500,
+      "mode": "Desde",
+      "unit": "Por proyecto",
+      "includes": "Una fuente de deudas, reglas de vencimiento, recordatorios por WhatsApp y estado de envío. Integración inicial incluida.",
+      "excludes": "Costos de mensajería, proveedor y alojamiento. La conexión inicial ya está incluida en este servicio."
+    },
+    {
+      "id": "AU06",
+      "category": "Integraciones",
+      "name": "Conectar dos sistemas mediante API",
+      "amount": 6000,
+      "mode": "Desde",
+      "unit": "Por integración",
+      "includes": "Sincronizar una entidad o proceso entre dos APIs, en un sentido, con mapeo de campos y registro de errores.",
+      "excludes": "Suscripciones, permisos y APIs de pago aparte. Bidireccionalidad y más procesos por cotización."
+    },
+    {
+      "id": "AU07",
+      "category": "Automatización con IA",
+      "name": "Automatizar un proceso con IA",
+      "amount": 6500,
+      "mode": "Desde",
+      "unit": "Por flujo",
+      "includes": "Un flujo acotado de clasificación, extracción o generación con IA y conexión a un destino; pruebas con casos acordados.",
+      "excludes": "Consumo del modelo, OCR, infraestructura y servicios externos aparte. Validación humana cuando se requiera."
+    }
+  ],
+  "combos": [
+    {
+      "id": "C01",
+      "name": "Formateo con respaldo",
+      "regular": 800,
+      "amount": 750,
+      "includes": "Windows estándar y respaldo hasta 100 GB; B01 incluye restitución."
+    },
+    {
+      "id": "C02",
+      "name": "Escritorio más ágil",
+      "regular": 750,
+      "amount": 650,
+      "includes": "Un escritorio estándar; limpieza, pasta del CPU y optimización de software."
+    },
+    {
+      "id": "C03",
+      "name": "Laptop más ágil",
+      "regular": 950,
+      "amount": 850,
+      "includes": "Laptop de desarmado estándar; limpieza, pasta y optimización."
+    },
+    {
+      "id": "C04",
+      "name": "Migración a SSD",
+      "regular": 600,
+      "amount": 550,
+      "includes": "Un SSD compatible y clonación de origen sano, hasta 250 GB usados; SSD aparte."
+    },
+    {
+      "id": "C05",
+      "name": "SSD con Windows limpio",
+      "regular": 1050,
+      "amount": 950,
+      "includes": "Montaje, Windows y respaldo hasta 100 GB; SSD y licencias aparte."
+    },
+    {
+      "id": "C06",
+      "name": "Laptop renovada",
+      "regular": 1450,
+      "amount": 1300,
+      "includes": "Limpieza, pasta, Windows y respaldo hasta 100 GB; modelo estándar."
+    },
+    {
+      "id": "C07",
+      "name": "Android en casa",
+      "regular": 700,
+      "amount": 600,
+      "includes": "Un teléfono y un Android TV del mismo cliente; compatibilidad previa, solo software."
+    },
+    {
+      "id": "C08",
+      "name": "Conectividad en casa",
+      "regular": 600,
+      "amount": 500,
+      "includes": "Un router/repetidor y una impresora con una PC; equipos del cliente."
+    },
+    {
+      "id": "C09",
+      "name": "PC armada y lista",
+      "regular": 1350,
+      "amount": 1200,
+      "includes": "Armado estándar y Windows; componentes y licencia aparte."
+    },
+    {
+      "id": "C10",
+      "name": "Primera presencia web",
+      "regular": 5000,
+      "amount": 4700,
+      "includes": "Landing más 1 mes de mantenimiento básico; dominio y hosting aparte."
+    },
+    {
+      "id": "C11",
+      "name": "Sitio con acompañamiento",
+      "regular": 11000,
+      "amount": 10500,
+      "includes": "Sitio de negocio más 3 meses de mantenimiento básico; no incluye infraestructura."
+    }
+  ]
+}

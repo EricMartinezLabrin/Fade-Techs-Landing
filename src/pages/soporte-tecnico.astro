@@ -1,0 +1,56 @@
+---
+import FadeLayout from '~/layouts/FadeLayout.astro';
+import { cities, hours, priceOf, whatsapp } from '~/data/fade';
+const options = [
+  ['Mantenimiento y limpieza de computadoras', 'Limpiamos el interior y la ventilación, cambiamos la pasta térmica cuando corresponde y probamos el equipo. Se realiza en taller.', 'M01'],
+  ['Optimización y formateo de computadoras', 'Revisamos arranque, lentitud y programas. Reinstalamos Windows, macOS o Linux según compatibilidad. El respaldo y las licencias se cotizan por separado.', 'P01'],
+  ['Instalación de SSD, RAM y cambio de piezas', 'Instalamos SSD y RAM y sustituimos componentes desmontables compatibles. Revisamos el modelo antes de que compres la pieza.', 'H03'],
+  ['Respaldos y recuperación lógica', 'Copiamos archivos accesibles y podemos intentar recuperar archivos borrados. El resultado depende del estado de los datos.', 'B01'],
+  ['Asistencia remota', 'Atendemos incidencias de software a distancia cuando se pueden resolver con tu autorización.', 'P11'],
+  ['Redes y periféricos', 'Configuramos impresoras, controladores y equipos de red doméstica compatibles.', 'R01'],
+];
+---
+<FadeLayout title="Reparación y mantenimiento de computadoras en Tampico" description="Diagnóstico, mantenimiento y reparación de computadoras en Tampico, Ciudad Madero y Altamira. Taller con o sin cita, visitas y asistencia remota.">
+  <section class="fade-hero"><div class="fade-shell"><p class="fade-kicker">Soporte técnico · {cities}</p><h1>Reparación de computadoras en Tampico</h1><p class="fade-lead">Atendemos laptops, equipos de escritorio, PC gamer y equipos todo en uno en Tampico, Ciudad Madero y Altamira. Trae tu computadora al taller con o sin cita.</p><div class="fade-actions"><a class="fade-btn" href={whatsapp('Hola, quiero consultar por el diagnóstico de mi equipo.')}>Consultar por WhatsApp</a><a class="fade-btn secondary" href="/contact">Ver horario y ubicación</a></div></div></section>
+  <section class="fade-section"><div class="fade-shell">
+    <div class="fade-head"><p class="fade-kicker">Diagnóstico · {priceOf('D01')} MXN por equipo</p><h2>Mantenimiento y reparación de laptops y PC</h2><p class="fade-lead">Revisamos la falla y te damos un presupuesto antes de reparar.</p></div>
+    <div class="fade-grid">{options.map(([name, description, id]) => <article class="fade-card"><h3>{name}</h3><p>{description}</p><strong class="fade-number">Desde {priceOf(id)} MXN</strong></article>)}</div>
+    <div class="fade-actions"><a class="fade-btn secondary" href="/pricing">Consultar catálogo y precios</a></div>
+  </div></section>
+  <section class="fade-section fade-tint" aria-labelledby="cobertura-soporte">
+    <div class="fade-shell">
+      <div class="fade-head">
+        <p class="fade-kicker">Cobertura local</p>
+        <h2 id="cobertura-soporte">Soporte de computadoras en Tampico, Ciudad Madero y Altamira</h2>
+        <p>El taller está en Tampico y recibe laptops y computadoras de escritorio con o sin cita. Si estás en Ciudad Madero o Altamira, puedes traer tu equipo o preguntar por visita o recolección según tu domicilio.</p>
+      </div>
+      <div class="fade-actions">
+        <a class="fade-btn" href="/contact">Ver ubicación y horario del taller</a>
+        <a class="fade-btn secondary" href="/pricing#soporte">Ver precios de mantenimiento y reparación</a>
+      </div>
+    </div>
+  </section>
+  <section id="soporte-negocios" class="fade-section" aria-labelledby="titulo-soporte-negocios">
+    <div class="fade-shell">
+      <article class="fade-card">
+        <p class="fade-kicker">Soporte para negocios · Por cotización</p>
+        <h2 id="titulo-soporte-negocios">Soporte técnico para pequeños negocios</h2>
+        <p>Mantenimiento preventivo de computadoras, asistencia remota, configuración de impresoras y respaldo de archivos, según el alcance acordado.</p>
+        <p>Puedes solicitar una intervención puntual o un plan mensual. Cuéntanos cuántos equipos tienes, dónde están y qué tipo de ayuda necesitas.</p>
+        <div class="fade-actions"><a class="fade-btn" href={whatsapp('Hola, quiero cotizar soporte técnico para mi negocio. Tengo estos equipos y necesito: ')}>Cotizar soporte para mi negocio</a></div>
+      </article>
+    </div>
+  </section>
+  <section id="android" class="fade-section fade-tint"><div class="fade-shell">
+    <div class="fade-head"><p class="fade-kicker">Android</p><h2>Optimización de teléfonos y televisores</h2><p class="fade-lead">Trabajamos con el sistema original y revisamos qué ajustes admite el modelo.</p></div>
+    <div class="fade-grid two"><article class="fade-card"><h3>Teléfono Android</h3><p>Revisión del rendimiento y ajustes de aplicaciones autorizadas.</p><strong class="fade-number">Desde {priceOf('A01')} MXN</strong></article><article class="fade-card"><h3>Android TV</h3><p>Ajustes del sistema y revisión de aplicaciones que ya no necesitas.</p><strong class="fade-number">Desde {priceOf('A02')} MXN</strong></article></div>
+  </div></section>
+  <section class="fade-section"><div class="fade-shell fade-faq">
+    <div class="fade-head"><h2>Antes de traer tu equipo</h2></div>
+    <details open><summary>¿Necesito cita?</summary><p>Puedes llegar sin cita o agendar por WhatsApp. {hours}.</p></details>
+    <details><summary>¿Qué tipo de reparaciones realizan?</summary><p>Hacemos ajustes de software y reemplazo de piezas desmontables en computadoras. El trabajo en Android se limita a optimización por software. Las reparaciones de chips, puertos soldados y tarjetas a nivel componente quedan fuera del alcance.</p></details>
+    <details><summary>¿Cómo se cobra el diagnóstico?</summary><p>El diagnóstico cuesta {priceOf('D01')} MXN. Se bonifica si autorizas en el momento y el equipo permanece con nosotros. Si ya lo pagaste, se descuenta al retomar la reparación dentro de los 7 días naturales siguientes al diagnóstico. El traslado se cobra por separado.</p></details>
+    <details><summary>¿Qué hago si mi computadora está lenta o se calienta?</summary><p>Si tarda en arrancar, se traba o se apaga por temperatura, revisamos qué lo causa. Según el diagnóstico, te explicamos si conviene optimizar el sistema, limpiar la ventilación o mejorar el almacenamiento o la memoria.</p></details>
+    <details><summary>¿Puedo llevar mis piezas?</summary><p>Sí. Revisamos compatibilidad antes de instalar. También podemos conseguir una pieza con pago previo de su costo. La mano de obra se cotiza por separado.</p></details>
+  </div></section>
+</FadeLayout>

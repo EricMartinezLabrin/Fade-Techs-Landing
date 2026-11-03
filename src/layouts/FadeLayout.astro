@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import '~/assets/styles/fade.css';
+import { facebook, hours, phone, phoneLink, whatsapp } from '~/data/fade';
+
+interface Props {
+  title: string;
+  description: string;
+  index?: boolean;
+}
+
+const { title, description, index = true } = Astro.props;
+const links = [
+  ['Inicio', '/'],
+  ['Soporte técnico', '/soporte-tecnico'],
+  ['Soluciones digitales', '/soluciones-digitales'],
+  ['Precios', '/pricing'],
+  ['Contacto', '/contact'],
+];
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<Layout metadata={{ title, description, robots: { index }, openGraph: { title, description } }}>
+  <div class="fade-site">
+    <header class="fade-header">
+      <div class="fade-shell fade-nav">
+        <a class="fade-brand" href="/" aria-label="Fade Technologies, inicio">
+          <img src="/fade-logo.webp" width="451" height="79" alt="" />
+        </a>
+        <nav aria-label="Navegación principal">
+          {links.map(([label, href]) => <a href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>)}
+        </nav>
+        <a class="fade-btn small nav-contact" href={whatsapp()} aria-label="WhatsApp de Fade Technologies">WhatsApp</a>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <footer class="fade-footer">
+      <div class="fade-shell footer-grid">
+        <div><a class="fade-brand" href="/"><span aria-hidden="true">&lt;/&gt;</span> FADE TECH</a><p>Innovación que perdura.</p></div>
+        <div><strong>Atención en taller</strong><p>{hours}<br />Recepción de equipos con o sin cita.</p></div>
+        <div><strong>Contacto</strong><p><a href={phoneLink}>{phone}</a><br /><a href={facebook}>Facebook</a> · <a href={whatsapp()}>WhatsApp</a></p></div>
+      </div>
+      <div class="fade-shell footer-bottom"><span>Fade Technologies · Tampico, Tamaulipas</span><span><a href="/privacy">Privacidad</a> · <a href="/terms">Términos</a></span></div>
+    </footer>
+  </div>
+</Layout>

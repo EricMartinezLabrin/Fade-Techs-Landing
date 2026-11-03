@@ -1,50 +1,39 @@
-﻿---
-import Layout from '~/layouts/PageLayout.astro';
-import Features from '~/components/widgets/Features.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+---
+import FadeLayout from '~/layouts/FadeLayout.astro';
+import CustomSolutions from '~/components/CustomSolutions.astro';
+import { items, combos, mxn, priceOf, whatsapp } from '~/data/fade';
 
-const metadata = {
-  title: 'Precios',
-  description:
-    'Todos los servicios se cotizan de forma personalizada según las necesidades de tu proyecto web o móvil.',
-  openGraph: {
-    title: 'Precios | Fade Technologies',
-    description:
-      'Todos los servicios se cotizan de forma personalizada según las necesidades de tu proyecto web o móvil.',
-  },
-  twitter: {
-    cardType: 'summary_large_image',
-  },
+const digital = (id: string) => /^(W|AU)/.test(id);
+const lists = [
+  { id: 'soporte', title: 'Soporte técnico y Android', items: items.filter((item) => !digital(item.id)) },
+  { id: 'desarrollo', title: 'Desarrollo y automatización', items: items.filter((item) => digital(item.id)) },
+];
+const price = (item: (typeof items)[number]) => {
+  if (item.amount === null) return 'Por cotización';
+  return (item.mode === 'Desde' ? 'Desde ' : '') + mxn(item.amount) + ' MXN' + (item.mode === 'Por km' ? ' / km' : '');
 };
 ---
-
-<Layout metadata={metadata}>
-  <Features
-    title="Presupuesto personalizado"
-    subtitle="No trabajamos con tarifas fijas porque cada proyecto tiene objetivos, complejidad y tiempos distintos."
-    columns={3}
-    items={[
-      {
-        title: 'Alcance a medida',
-        description: 'Definimos el presupuesto según funcionalidades, integraciones y objetivos de negocio.',
-        icon: 'tabler:adjustments',
-      },
-      {
-        title: 'Priorización inteligente',
-        description: 'Te ayudamos a priorizar para invertir primero en lo que más impacto tendrá.',
-        icon: 'tabler:target-arrow',
-      },
-      {
-        title: 'Transparencia total',
-        description: 'Presentamos una propuesta clara de tiempos, entregables y costo antes de iniciar.',
-        icon: 'tabler:file-description',
-      },
-    ]}
-  />
-
-  <CallToAction
-    title="Conversemos tu proyecto y definamos el mejor presupuesto"
-    subtitle="Te ayudamos a priorizar funcionalidades, tiempos e inversión para construir una propuesta clara, realista y alineada a tus metas."
-    actions={[{ variant: 'primary', text: 'Contactar para cotizar', href: '/contact' }]}
-  />
-</Layout>
+<FadeLayout title="Precios de reparación de computadoras y desarrollo web" description="Consulta precios de diagnóstico, limpieza, instalación de SSD y RAM, formateo, soporte Android, sitios web, apps y automatización de Fade Technologies.">
+  <section class="fade-hero"><div class="fade-shell"><p class="fade-kicker">Tarifas en pesos mexicanos</p><h1>Servicios y precios</h1><p class="fade-lead">Los precios «desde» corresponden al alcance básico. Confirmamos el costo y qué incluye antes de iniciar.</p><div class="fade-actions"><a class="fade-btn" href="#soporte">Ver soporte técnico</a><a class="fade-btn secondary" href="#desarrollo">Ver desarrollo</a><a class="fade-btn secondary" href="#combos">Ver paquetes</a></div></div></section>
+  <section class="fade-section fade-tint"><div class="fade-shell fade-grid two">
+    <article class="fade-card"><h3>Diagnóstico · {priceOf('D01')} MXN</h3><p>Por equipo. Se bonifica si autorizas la reparación en el momento y el equipo permanece en el taller. Si lo pagaste, se descuenta al retomar la reparación en los 7 días naturales siguientes al diagnóstico.</p></article>
+    <article class="fade-card"><h3>Traslado · {priceOf('T01')} MXN/km</h3><p>Mínimo de {priceOf('T02')} MXN por viaje. La distancia se calcula desde el Mercado del Norte de Tampico. Visita, recolección y entrega se cotizan por trayecto.</p></article>
+  </div></section>
+  {lists.map((list) => <section id={list.id} class="fade-section"><div class="fade-shell">
+    <div class="fade-head"><h2>{list.title}</h2></div>
+    {[...new Set(list.items.map((item) => item.category))].map((category) => <details class="price-group" open={category === 'Software PC' || category === 'Desarrollo'}>
+      <summary>{category}</summary>
+      <ul class="fade-price-list">{list.items.filter((item) => item.category === category).map((item) => <li>
+        <div class="fade-price-row"><strong>{item.name}</strong><strong>{price(item)}</strong></div>
+        <p class="fade-price-detail">{item.unit}. {item.includes}</p>
+        {item.excludes && <p class="fade-price-detail">Aparte o sujeto a alcance: {item.excludes}</p>}
+      </li>)}</ul>
+    </details>)}
+    <div class="fade-actions"><a class="fade-btn" href={whatsapp('Hola, quiero confirmar el precio y el alcance de un servicio.')}>Consultar por WhatsApp</a></div>
+  </div></section>)}
+  <section id="combos" class="fade-section fade-tint"><div class="fade-shell">
+    <div class="fade-head"><h2>Paquetes de servicios</h2><p>Precios de referencia para el alcance indicado. Piezas, licencias y traslado se cotizan por separado. Confirma disponibilidad por WhatsApp.</p></div>
+    <div class="fade-grid">{combos.map((combo) => <article class="fade-card"><h3>{combo.name}</h3><p>{combo.includes}</p><strong class="fade-number">Desde {mxn(combo.amount)} MXN</strong><a href={whatsapp('Hola, quiero confirmar el paquete ' + combo.name + '.')}>Consultar paquete</a></article>)}</div>
+  </div></section>
+  <CustomSolutions />
+</FadeLayout>

@@ -3,6 +3,8 @@ import '~/assets/styles/tailwind.css';
 
 import { I18N } from 'fadetechs:config';
 import { SITE } from 'fadetechs:config';
+import { facebook, maps, phoneLink } from '~/data/fade';
+import { getCanonical } from '~/utils/permalinks';
 
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
@@ -24,11 +26,30 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
-const canonical = new URL(Astro.url.pathname, SITE?.site ?? 'https://fadetechs.com').toString();
+const canonical = metadata.canonical ?? String(getCanonical(Astro.url.pathname));
 const jsonLd = [
   {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'LocalBusiness',
+    '@id': 'https://fadetechs.com/#fade-technologies',
+    telephone: phoneLink.slice(4),
+    sameAs: [facebook],
+    hasMap: maps,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Integración Social 420',
+      addressLocality: 'Tampico',
+      addressRegion: 'Tamaulipas',
+      postalCode: '89314',
+      addressCountry: 'MX',
+    },
+    areaServed: ['Tampico', 'Ciudad Madero', 'Altamira'].map((name) => ({ '@type': 'City', name })),
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '10:00',
+      closes: '17:00',
+    },
     name: SITE?.name ?? 'Fade Technologies',
     url: SITE?.site ?? 'https://fadetechs.com',
     logo: `${SITE?.site ?? 'https://fadetechs.com'}/logo-gold.png`,
@@ -49,6 +70,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     url: canonical,
+    about: { '@id': 'https://fadetechs.com/#fade-technologies' },
     isPartOf: SITE?.site ?? 'https://fadetechs.com',
     inLanguage: language ?? 'es',
   },
@@ -65,7 +87,7 @@ const jsonLd = [
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Comment the line below to disable View Transitions -->
     <ViewTransitions fallback="swap" />

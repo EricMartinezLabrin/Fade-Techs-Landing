@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
 
+export const prerender = false;
+
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 const CONTACT_TO = 'eric@fadetechs.com';
 
