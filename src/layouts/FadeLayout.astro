@@ -18,8 +18,34 @@ const links = [
   ['Contacto', '/contact'],
 ];
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const socialImage =
+  pathname === '/soporte-tecnico' ? 'soporte' : pathname === '/soluciones-digitales' ? 'digital' : 'general';
+const socialImageAlt = {
+  general: 'Fade Technologies: soporte de computadoras y soluciones digitales en Tampico, Ciudad Madero y Altamira.',
+  soporte: 'Fade Technologies: tu computadora en buenas manos. Laptop, SSD y memoria RAM.',
+  digital: 'Fade Technologies: tecnología que impulsa tu negocio. Sitios web, apps y automatización.',
+};
 ---
-<Layout metadata={{ title, description, robots: { index }, openGraph: { title, description } }}>
+
+<Layout
+  metadata={{
+    title,
+    description,
+    robots: { index },
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: `~/assets/images/social/fade-${socialImage}.png`,
+          width: 1200,
+          height: 630,
+          alt: socialImageAlt[socialImage],
+        },
+      ],
+    },
+  }}
+>
   <div class="fade-site">
     <header class="fade-header">
       <div class="fade-shell fade-nav">
@@ -27,7 +53,13 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
           <img src="/fade-logo.webp" width="451" height="79" alt="" />
         </a>
         <nav aria-label="Navegación principal">
-          {links.map(([label, href]) => <a href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>)}
+          {
+            links.map(([label, href]) => (
+              <a href={href} aria-current={pathname === href ? 'page' : undefined}>
+                {label}
+              </a>
+            ))
+          }
         </nav>
         <a class="fade-btn small nav-contact" href={whatsapp()} aria-label="WhatsApp de Fade Technologies">WhatsApp</a>
       </div>
@@ -35,11 +67,23 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
     <main id="main-content" tabindex="-1"><slot /></main>
     <footer class="fade-footer">
       <div class="fade-shell footer-grid">
-        <div><a class="fade-brand" href="/"><span aria-hidden="true">&lt;/&gt;</span> FADE TECH</a><p>Innovación que perdura.</p></div>
+        <div>
+          <a class="fade-brand" href="/"><span aria-hidden="true">&lt;/&gt;</span> FADE TECH</a><p>
+            Innovación que perdura.
+          </p>
+        </div>
         <div><strong>Atención en taller</strong><p>{hours}<br />Recepción de equipos con o sin cita.</p></div>
-        <div><strong>Contacto</strong><p><a href={phoneLink}>{phone}</a><br /><a href={facebook}>Facebook</a> · <a href={whatsapp()}>WhatsApp</a></p></div>
+        <div>
+          <strong>Contacto</strong><p>
+            <a href={phoneLink}>{phone}</a><br /><a href={facebook}>Facebook</a> · <a href={whatsapp()}>WhatsApp</a>
+          </p>
+        </div>
       </div>
-      <div class="fade-shell footer-bottom"><span>Fade Technologies · Tampico, Tamaulipas</span><span><a href="/privacy">Privacidad</a> · <a href="/terms">Términos</a></span></div>
+      <div class="fade-shell footer-bottom">
+        <span>Fade Technologies · Tampico, Tamaulipas</span><span
+          ><a href="/privacy">Privacidad</a> · <a href="/terms">Términos</a></span
+        >
+      </div>
     </footer>
   </div>
 </Layout>

@@ -18,9 +18,10 @@ metadata:
     site_name: Fade Technologies
     locale: es_MX
     images:
-      - url: '~/assets/images/fade-social.webp'
+      - url: '~/assets/images/social/fade-general.png'
         width: 1200
         height: 630
+        alt: 'Fade Technologies: soporte de computadoras y soluciones digitales en Tampico, Ciudad Madero y Altamira.'
     type: website
   twitter:
     handle: '@fadetechs'

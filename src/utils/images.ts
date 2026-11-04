@@ -59,7 +59,7 @@ export const adaptOpenGraphImages = async (
 
   const images = openGraph.images;
   const defaultWidth = 1200;
-  const defaultHeight = 626;
+  const defaultHeight = 630;
 
   const adaptedImages = await Promise.all(
     images.map(async (image) => {
@@ -91,6 +91,8 @@ export const adaptOpenGraphImages = async (
 
         if (typeof _image === 'object') {
           return {
+            ...image,
+            type: 'image/jpeg',
             url: 'src' in _image && typeof _image.src === 'string' ? String(new URL(_image.src, astroSite)) : '',
             width: 'width' in _image && typeof _image.width === 'number' ? _image.width : undefined,
             height: 'height' in _image && typeof _image.height === 'number' ? _image.height : undefined,

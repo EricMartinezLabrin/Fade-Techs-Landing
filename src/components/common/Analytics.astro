@@ -3,6 +3,15 @@ import { GoogleAnalytics } from '@astrolib/analytics';
 import { ANALYTICS } from 'fadetechs:config';
 ---
 
+<script is:inline async src="https://www.googletagmanager.com/gtm.js?id=GTM-NMHX4MHN"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+</script>
+
 {
   ANALYTICS?.vendors?.googleAnalytics?.id ? (
     <GoogleAnalytics
