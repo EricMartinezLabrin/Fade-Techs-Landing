@@ -2,6 +2,7 @@ import prices from './fade-prices.json';
 
 export const { items, combos } = prices;
 export const phone = '833 345 7263';
+export const email = 'eric@fadetechs.com';
 export const phoneLink = 'tel:+528333457263';
 export const facebook = 'https://www.facebook.com/fadetechmx';
 export const hours = 'Lunes a viernes, 10:00 a 17:00';

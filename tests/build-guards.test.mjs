@@ -45,17 +45,13 @@ test('No se usa namespace de config inválido', () => {
   );
 });
 
-test('Si output es hybrid/server, astro.config.ts define adapter', () => {
+test('El sitio usa salida static sin adaptador ni rutas dinamicas', () => {
   const config = read('astro.config.ts');
-  const usesServerOutput = /output:\s*['"](hybrid|server)['"]/.test(config);
-
-  if (!usesServerOutput) return;
-
-  assert.match(
-    config,
-    /adapter:\s*[a-zA-Z0-9_]+\s*\(/,
-    'astro.config.ts usa output híbrido/server pero no define adapter.'
-  );
+  assert.match(config, /output:\s*['"]static['"]/);
+  assert.doesNotMatch(config, /adapter\s*:/);
+  for (const file of walkFiles('src/pages')) {
+    assert.doesNotMatch(read(file), /export\s+const\s+prerender\s*=\s*false/, file);
+  }
 });
 
 test('Open Graph en páginas no usa rutas locales absolutas con "/" en metadata', () => {
@@ -71,7 +67,7 @@ test('Open Graph en páginas no usa rutas locales absolutas con "/" en metadata'
   assert.equal(
     offenders.length,
     0,
-    `OpenGraph con rutas "/..." detectadas (riesgo en SSR/hybrid). Ajustar a asset local importado o URL absoluta válida:\n${offenders.join('\n')}`
+    `OpenGraph con rutas "/..." detectadas. Ajustar a asset local importado o URL absoluta válida:\n${offenders.join('\n')}`
   );
 });
 

@@ -69,7 +69,7 @@ We're embarking on an exciting journey with **Fade Technologies 2.0**, and we wa
 
 Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
 
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
+This site uses Astro's `static` output. Run `npm run build` and publish the complete `dist/` directory to a static host. No Node.js process or backend environment variables are required in production. Contact is handled through direct WhatsApp and email links.
 
 ### Project structure
 

@@ -161,25 +161,6 @@ export interface Testimonial {
   image?: string | unknown;
 }
 
-export interface Input {
-  type: HTMLInputTypeAttribute;
-  name: string;
-  label?: string;
-  autocomplete?: string;
-  placeholder?: string;
-}
-
-export interface Textarea {
-  label?: string;
-  name?: string;
-  placeholder?: string;
-  rows?: number;
-}
-
-export interface Disclaimer {
-  label?: string;
-}
-
 // COMPONENTS
 export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
@@ -202,16 +183,6 @@ export interface Collapse {
   items?: Array<Item>;
   columns?: number;
   classes?: Record<string, string>;
-}
-
-export interface Form {
-  inputs?: Array<Input>;
-  textarea?: Textarea;
-  disclaimer?: Disclaimer;
-  button?: string;
-  description?: string;
-  action?: string;
-  method?: 'get' | 'post';
 }
 
 // WIDGETS
@@ -284,5 +255,3 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
-
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

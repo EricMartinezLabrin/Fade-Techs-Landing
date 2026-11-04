@@ -75,8 +75,6 @@
 .fade-price-detail { color: var(--fade-muted); font-size: .9rem; }
 .fade-site label { display: grid; gap: .3rem; font-weight: 700; }
 .fade-site input, .fade-site textarea { width: 100%; border: 1px solid #b0b0b0; padding: .65rem; border-radius: .35rem; background: white; color: var(--fade-ink); }
-.fade-form { display: grid; gap: 1rem; }
-.fade-form button { justify-self: start; }
 @media (max-width: 820px) {
   .fade-hero-grid { grid-template-columns: 1fr; }
   .fade-nav { flex-wrap: wrap; }
